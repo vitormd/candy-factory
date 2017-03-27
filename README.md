@@ -1,5 +1,7 @@
 # candy-factory
-Exercise taken from: http://www.blackbytes.info/halloween-challenge/
+Challenge taken from: http://www.blackbytes.info/halloween-challenge/
+
+This is my solution, but you should make your own without looking at mine. :wink:
 
 ## Write the Candy Factory Software and Save Halloween!
 
