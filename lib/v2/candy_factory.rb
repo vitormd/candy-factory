@@ -1,22 +1,18 @@
 class CandyFactory
   def initialize(red: 0, green: 0, yellow: 0, blue: 0)
-    @r = { total: red,    letter: 'R' }
-    @g = { total: green,  letter: 'G' }
-    @y = { total: yellow, letter: 'Y' }
-    @b = { total: blue,   letter: 'B' }
-    @package = ''
+    @red    = red.times.each_with_object([]) { |_, array| array << 'R' }
+    @green  = green.times.each_with_object([]) { |_, array| array << 'G' }
+    @blue   = blue.times.each_with_object([]) { |_, array| array << 'B' }
+    @yellow = yellow.times.each_with_object([]) { |_, array| array << 'Y' }
   end
 
   def pack
-    yellows      = (@y[:letter] * @y[:total]).split('')
-    blue_greens  = (@g[:letter] * @g[:total]).split('')
-    blue_greens += (@b[:letter] * @b[:total]).split('')
-    reds         = (@r[:letter] * @r[:total]).split('')
+    @blue_green = @blue + @green
 
-    if yellows.size > blue_greens.size
-      (yellows.zip(blue_greens).flatten.compact + reds).join
+    if @yellow.size > @blue_green.size
+      (@yellow.zip(@blue_green).flatten.compact + @red).join
     else
-      (blue_greens.zip(yellows).flatten.compact + reds).join
+      (@blue_green.zip(@yellow).flatten.compact + @red).join
     end
   end
 end
